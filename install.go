@@ -77,7 +77,11 @@ func install() {
 	dst := filepath.Join(dir, bin)
 	src := filepath.Join(extractDir, bin)
 	vPrintln("moving", src, "to", dst)
-	err = os.Rename(src, dst)
+	if runtime.GOOS == "windows" {
+		err = os.Rename(src+".exe", dst+".exe")
+	} else {
+		err = os.Rename(src, dst)
+	}
 	if err != nil {
 		fmt.Println(err)
 		return

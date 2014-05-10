@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"os/exec"
 	"path/filepath"
 	"runtime"
 	"strings"
@@ -77,6 +78,15 @@ GLOBAL OPTIONS:
 `, APP_VER)
 }
 
+// exePath returns the executable path.
+func exePath() (string, error) {
+	file, err := exec.LookPath(os.Args[0])
+	if err != nil {
+		return "", err
+	}
+	return filepath.Abs(file)
+}
+
 func getPath() string {
 	path := os.Getenv("PATH")
 	gPath := os.Getenv("GOPATH")
@@ -93,6 +103,11 @@ func getPath() string {
 		if strings.Contains(path, bin) {
 			return bin
 		}
+	}
+
+	p, err := exePath()
+	if err == nil {
+		return filepath.Dir(p)
 	}
 
 	//TODO: where is the default binary path?
