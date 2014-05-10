@@ -21,7 +21,7 @@ You can download got from gobuild.io
 
 or if you have installed go tool
 
-    go install github.com/lunny/got
+    go get github.com/lunny/got
     
 # How to use
 
