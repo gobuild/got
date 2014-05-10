@@ -23,14 +23,40 @@ or if you have installed go tool
     
 # How to use
 
-Use got is simple, say we need xorm tool, then
+Use got is simple, say we need gopm tool, then
 
-    got github.com/go-xorm/cmd/xorm
+    got github.com/gpmgo/gopm
     
 more simpler, for github.com go package we can ignore the domain name
 
-    got go-xorm/cmd/xorm
+    got gpmgo/gopm
     
-and then type `xorm help`
+and then type `gopm help`
+
+# Well known Go Packages tested
+
+    got nsf/gocode
+    got beego/bee
+    got gpmgo/gopm
+    got bradfitz/goimports
+    got mitchellh/gox
+    got wendal/gor
+    got laher/goxc
+    got parkghost/gohttpbench
+    got shxsun/fswatch
+    got tools/godep
+    got mattn/gom
+    got codegangsta/gin
+    got codeskyblue/gobuild
+    got zachlatta/postman
+    got coreos/etcd
+    got hashicorp/serf
+    got FiloSottile/Heartbleed
+    got cyfdecyf/cow
+    got apcera/gnatsd
+    got shenfeng/http-watcher
+    got nf/goplayer
+    got piranha/goreplace
+    got mtourne/gurl
 
 Wish you like.
