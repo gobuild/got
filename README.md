@@ -3,6 +3,8 @@
 
 ** Heavily development, contributings are welcome!**
 
+[中文版(Chinese)](https://github.com/lunny/got/blob/master/README_CN.md)
+
 # Why we need a binary install tool
 
 Since we have `go install`, do we need a binary install tool? I think YES, because I think we are BOTH consumer AND developer. When we decide to test or use some command, we just a consumer, why we need install git or hg, why we need download the source codes and build? Our requirement is only install and use it.
@@ -14,7 +16,7 @@ So I make got. Let's got it.
 You can download got from gobuild.io
 
     wget http://gobuild.io/github.com/lunny/got/master/darwin/amd64 -O output.zip
-    unzpi output.zip
+    unzip output.zip
     cp got /usr/local/bin/
 
 or if you have installed go tool
