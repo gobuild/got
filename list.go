@@ -4,6 +4,9 @@ import "fmt"
 
 func list() {
 	fmt.Println(`There are 22 packages:
+    go-xorm/cmd/xorm
+    revel/cmd/revel
+    cznic/ql/ql
     nsf/gocode
     beego/bee
     gpmgo/gopm

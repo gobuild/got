@@ -33,7 +33,11 @@ func install() {
 	}
 
 	ss := strings.Split(pkgPath, "/")
-	if len(ss) == 2 {
+	if len(ss) < 2 {
+		fmt.Println("not a go package path")
+		return
+	}
+	if !strings.Contains(ss[0], ".") {
 		pkgPath = "github.com/" + pkgPath
 	}
 
