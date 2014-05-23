@@ -40,6 +40,10 @@ and then type `gopm help`
     got nsf/gocode
     got beego/bee
     got gpmgo/gopm
+    got go-xorm/cmd/xorm
+    got revel/cmd/revel
+    got cznic/ql/ql
+    got go-xweb/xrun
     got bradfitz/goimports
     got mitchellh/gox
     got wendal/gor
