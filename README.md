@@ -37,6 +37,7 @@ and then type `gopm help`
 
 # Well known Go Packages tested
 
+    got dotcloud/docker/docker
     got nsf/gocode
     got beego/bee
     got gpmgo/gopm

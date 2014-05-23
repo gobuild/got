@@ -7,6 +7,7 @@ func list() {
     go-xorm/cmd/xorm
     revel/cmd/revel
     cznic/ql/ql
+    go-xweb/xrun
     nsf/gocode
     beego/bee
     gpmgo/gopm

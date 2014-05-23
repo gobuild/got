@@ -12,7 +12,7 @@ import (
 	"strings"
 )
 
-const APP_VER = "0.1.0512"
+const APP_VER = "0.1.0523"
 
 func init() {
 	runtime.GOMAXPROCS(runtime.NumCPU())

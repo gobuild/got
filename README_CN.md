@@ -37,6 +37,7 @@
 
 # 已经经过测试的包如下，从此可以删除掉这些包对应的源码了。
 
+    got dotcloud/docker/docker
     got nsf/gocode
     got beego/bee
     got gpmgo/gopm
