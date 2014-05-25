@@ -74,7 +74,7 @@ COMMANDS:
    help		Shows a list of commands or help for one command
 
 GLOBAL OPTIONS:
-   -v	print the version
+   -v print verbose detail
 `, APP_VER)
 }
 
@@ -111,6 +111,10 @@ func getPath() string {
 	}
 
 	//TODO: where is the default binary path?
+	if runtime.GOOS == "windows" {
+		ret := "C:\\"
+		return ret
+	}
 	return "/usr/local/bin"
 }
 
