@@ -9,7 +9,7 @@ import (
 	"strings"
 )
 
-const APP_VER = "0.2.0524"
+const APP_VER = "0.2.0525"
 
 func init() {
 	runtime.GOMAXPROCS(runtime.NumCPU())
@@ -102,22 +102,6 @@ func getPath() string {
 	return "/usr/local/bin"
 }
 
-func remove() {
-
-}
-
-func update() {
-
-}
-
-func upgrade() {
-
-}
-
-func search() {
-
-}
-
 func main() {
 	flag.Parse()
 
@@ -142,6 +126,8 @@ func main() {
 		help()
 	case "rm":
 		remove()
+	case "info":
+		info()
 	case "download":
 		download()
 	case "search":
@@ -152,6 +138,8 @@ func main() {
 		update()
 	case "install":
 		install()
+	case "run":
+		run()
 	default:
 		install()
 	}

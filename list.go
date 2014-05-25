@@ -1,34 +1,27 @@
 package main
 
-import "fmt"
+import (
+	"encoding/json"
+	"fmt"
+	"net/http"
+)
 
 func list() {
-	fmt.Println(`There are 22 packages:
-    go-xorm/cmd/xorm
-    revel/cmd/revel
-    cznic/ql/ql
-    go-xweb/xrun
-    nsf/gocode
-    beego/bee
-    gpmgo/gopm
-    bradfitz/goimports
-    mitchellh/gox
-    wendal/gor
-    laher/goxc
-    parkghost/gohttpbench
-    shxsun/fswatch
-    tools/godep
-    mattn/gom
-    codegangsta/gin
-    zachlatta/postman
-    coreos/etcd
-    hashicorp/serf
-    FiloSottile/Heartbleed
-    cyfdecyf/cow
-    apcera/gnatsd
-    shenfeng/http-watcher
-    nf/goplayer
-    piranha/goreplace
-    mtourne/gurl
-`)
+	resp, err := http.Get(pkgUrl())
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	var pkgs = make([]Pkg, 0)
+	decoder := json.NewDecoder(resp.Body)
+	err = decoder.Decode(&pkgs)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	for _, pkg := range pkgs {
+		fmt.Println(pkg.Name, "\t", pkg.Description)
+	}
 }

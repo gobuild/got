@@ -104,8 +104,6 @@ func get(ver, pkg string) error {
 		return err
 	}
 
-	// TODO: link to path
-
 	vPrintln("Clear", binPath)
 	os.Remove(binPath)
 	return nil

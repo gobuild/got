@@ -33,23 +33,27 @@ func unzip(dest, fPath string) error {
 	// printing some of their contents.
 	for _, f := range r.File {
 		vPrintln("Extracting", f.Name)
-		rc, err := f.Open()
-		if err != nil {
-			return err
-		}
-		defer rc.Close()
 
-		newPath := filepath.Join(dest, f.Name)
-		os.MkdirAll(filepath.Dir(newPath), os.ModePerm)
-		nf, err := os.OpenFile(newPath, os.O_RDWR|os.O_CREATE|os.O_TRUNC, f.Mode())
-		if err != nil {
-			return err
-		}
-		defer nf.Close()
+		if !strings.HasSuffix(f.Name, "/") {
+			rc, err := f.Open()
+			if err != nil {
+				return err
+			}
+			defer rc.Close()
+			newPath := filepath.Join(dest, f.Name)
+			os.MkdirAll(filepath.Dir(newPath), os.ModePerm)
+			nf, err := os.OpenFile(newPath, os.O_RDWR|os.O_CREATE|os.O_TRUNC, f.Mode())
+			if err != nil {
+				return err
+			}
+			defer nf.Close()
 
-		_, err = io.Copy(nf, rc)
-		if err != nil {
-			return err
+			_, err = io.Copy(nf, rc)
+			if err != nil {
+				return err
+			}
+		} else {
+			os.MkdirAll(filepath.Join(dest, f.Name), os.ModePerm)
 		}
 	}
 	return nil
